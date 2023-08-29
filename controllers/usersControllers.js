@@ -174,16 +174,16 @@ const addNote = async (req, res) => {
       port: 587,
       secure: false,
       auth: {
-        user: "mahmoudamanaa98@gmail.com",
-        pass: "ozmxulrkvkyegtsq",
+        user: process.env.ORIGIN_EMAIL,
+        pass: process.env.ORIGIN_PASSWORD,
       },
     };
 
     const transporter = nodemailer.createTransport(config);
 
     const data = {
-      from: "mahmoudamanaa98@gmail.com",
-      to: "mahmoudamanaa98@outlook.com",
+      from: process.env.ORIGIN_EMAIL,
+      to: "",
       subject: "Note is Added",
       text: "A new note is added",
     };
@@ -244,18 +244,18 @@ const deleteNote = async (req, res) => {
       port: 587,
       secure: false,
       auth: {
-        user: "mahmoudamanaa98@gmail.com",
-        pass: "ozmxulrkvkyegtsq",
+        user: process.env.ORIGIN_EMAIL,
+        pass: process.env.ORIGIN_PASSWORD,
       },
     };
 
     const transporter = nodemailer.createTransport(config);
 
     const data = {
-      from: "mahmoudamanaa98@gmail.com",
-      to: "mahmoudamanaa98@outlook.com",
-      subject: "Note is Deleted",
-      text: "A note is deleted",
+      from: process.env.ORIGIN_EMAIL,
+      to: "",
+      subject: "Note is Added",
+      text: "A new note is added",
     };
 
     transporter.sendMail(data, (err, info) => {
@@ -292,24 +292,24 @@ const editNote = async (req, res) => {
     );
 
     ////
-    const config = {
+     const config = {
       service: "gmail",
       host: "smtp.gmail.com",
       port: 587,
       secure: false,
       auth: {
-        user: "mahmoudamanaa98@gmail.com",
-        pass: "ozmxulrkvkyegtsq",
+        user: process.env.ORIGIN_EMAIL,
+        pass: process.env.ORIGIN_PASSWORD,
       },
     };
 
     const transporter = nodemailer.createTransport(config);
 
     const data = {
-      from: "mahmoudamanaa98@gmail.com",
-      to: "mahmoudamanaa98@outlook.com",
-      subject: "Note is Edited",
-      text: "A note is edited",
+      from: process.env.ORIGIN_EMAIL,
+      to: "",
+      subject: "Note is Added",
+      text: "A new note is added",
     };
 
     transporter.sendMail(data, (err, info) => {
