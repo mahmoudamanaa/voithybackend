@@ -34,8 +34,8 @@ passport.use(
   new GoogleStrategy(
     {
       clientID:
-        "131058004428-f817ho9ecavt1ph0drrgeqfv5rphsila.apps.googleusercontent.com",
-      clientSecret: "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",
+        process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
       callbackURL: "http://localhost:4000/auth/google/callback",
       scope: ["profile", "email"],
     },
@@ -211,7 +211,7 @@ app.get(
         patient = await Patient.create({
           username,
           email,
-          password: "123@Ma123",
+          password: "",
         });
 
         token = jwt.sign(
